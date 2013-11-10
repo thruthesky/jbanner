@@ -59,18 +59,32 @@ Using jBanner is very straitforward. Just look at the index.html file.
 
 Here are some codes.
 
-
-    $('.jbanner').begin({
-			'interval'	: 1000,
-			'speed'		: 400,
+	$(function(){
+		$obj = $('.banner_rotator_with_url').begin({
+			'height'	: 200,
+			'interval'	: 5000,
+			'speed'	: 400,
 			'button'	: true,
-			'pause'		: true,
-			'callback_init'	: jbutton_callback_init
+			'pause'	: true,
+			'callback_init'	: jbanner_init,
+			'callback_banner_change' : callback_banner_change
 		});
-
-	function jbutton_callback_init( $this )
+	});
+	function jbanner_init($this)
 	{
-		$this.find('.jbanner-buttons span').css("border", "2px solid red");
+		$this.find('.jbanner-buttons span').css("padding", "2px 8px");
+		$this.find(".jbanner-buttons span:contains('1')")
+			.css('padding-left','16px')
+			.css('padding-right', '16px')
+		;
+	}
+	function callback_banner_change($this, no)
+	{
+		$this.find(".jbanner-buttons span").css("padding", "2px 8px");
+		$this.find(".jbanner-buttons span:contains('"+ (no+1) +"')")
+			.css('padding-left','16px')
+			.css('padding-right', '16px')
+		;
 	}
 
 	<div class='jbanner'>
