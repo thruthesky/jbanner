@@ -1,4 +1,4 @@
-/** jBanner version 0.2
+/** jBanner https://github.com/thruthesky/jbanner
  *
  * Powered By JaeHo Song thruthesky@gmail.com
  * Open source code under GPL.
@@ -18,7 +18,8 @@
 			'speed': 300,
 			'button': true,
 			'pause': true,
-			'callback_init' : null
+			'callback_init' : null,
+			'callback_banner_change' : null
 		};
 		var max_length = $(this).find('a').length;
 		var o = $.extend(defaults,options);
@@ -67,7 +68,6 @@
 			no_of_image_shown = count;
 			zIndex++;
 			var width = $this.width();
-			var height = $this.height();
 			$this
 				.find('a:eq(' + count + ')')
 				.css('z-index', zIndex)
@@ -78,7 +78,7 @@
 					},
 					o.speed,
 					function(){
-						// ...
+						if ( o.callback_banner_change ) o.callback_banner_change($this, no_of_image_shown);
 					}
 				)
 			;
