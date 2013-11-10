@@ -13,6 +13,7 @@
 		var timer_interval = null;
 		var no_of_image_shown = 0;
 		var defaults = {
+			'height': 120,
 			'interval': 5000,
 			'speed': 300,
 			'button': true,
@@ -21,11 +22,15 @@
 		};
 		var max_length = $(this).find('a').length;
 		var o = $.extend(defaults,options);
-		var width = $(this).find('img:eq(0)').width();
-		var height = $(this).find('img:eq(0)').height();
 		if ( o.button ) show_button();
 		$(this).find('a').css('position', 'absolute');
-		// $(this).find('img').css('border', '0'); // problem with IE7
+		
+		$(this).find('img')
+			.css('width', '100%')
+			.css('max-width', '100%')
+			.css('height', o.height + 'px')
+			// .css('border', '0'); // problem with IE7
+		;
 		$(this).find('a').hide();
 		
 		$(this).find('a:eq(0)').show();
@@ -33,24 +38,12 @@
 			rotate_banner();
 			},
 			o.interval );
-
+			
 		$(this)
 			.css('position', 'relative')
-			.css('width', width + 'px')
-			.css('height', height + 'px')
 			.css('overflow', 'hidden')
+			.css('height', o.height + 'px')
 			;
-		
-		if ( width == 0 ) {		// When reload, if there is no image cache... like safari.
-			$(window).load(function() {
-				width = $this.find('img:eq(0)').width();
-				height = $this.find('img:eq(0)').height();
-				$this
-					.css('width', width + 'px')
-					.css('height', height + 'px')
-				;
-			});
-		}
 		$(this).mouseenter(function(){
 			if ( o.pause ) clearInterval(timer_interval);
 		});
@@ -73,6 +66,8 @@
 		{
 			no_of_image_shown = count;
 			zIndex++;
+			var width = $this.width();
+			var height = $this.height();
 			$this
 				.find('a:eq(' + count + ')')
 				.css('z-index', zIndex)
@@ -99,6 +94,8 @@
 			$this.append(buttons);
 			$('.jbanner-buttons')
 				.css('position', 'absolute')
+				.css('top', '10px')
+				.css('right', '10px')
 				.css('z-index', 999999)
 				;
 			$this.find('.jbanner-buttons span')

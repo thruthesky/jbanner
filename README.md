@@ -16,6 +16,15 @@ jBanner had been tested on: IE10 and IE7, IE8, IE9 compatibility view, FF, Chrom
 
 
 ## Options ##
+### height ###
+Added to make jBanner responsive. Now you must set the height of banner.
+
+- Number only.
+- The default is 120.
+
+
+ 
+
 ### pause ###
 If it is set true, then the animation will be pause when the mouse cursor enters into banner area.
 
