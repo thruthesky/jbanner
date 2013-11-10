@@ -11,8 +11,11 @@ jBanner is a simple banner rotator sliding from right to left.
 jBanner had been tested on: IE10 and IE7, IE8, IE9 compatibility view, FF, Chrome, Safari, Opera, Opera Emulator
 
 ## Condition ##
-- All images must have same size.
-- The width and height of the container is set to that of first image.
+- All images should have same size.
+- The height of the image must be set in option.
+- Width of the image is always 100%. With this, it becomes responsive.
+
+
 
 
 ## Options ##
