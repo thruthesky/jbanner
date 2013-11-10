@@ -1,3 +1,8 @@
+/** jBanner version 0.2
+ *
+ * Powered By JaeHo Song thruthesky@gmail.com
+ * Open source code under GPL.
+ */
 (function($)
 {
 	$.fn.begin = function(options)
