@@ -1,0 +1,23 @@
+<html>
+<body>
+<script>
+var my = (function(){
+    return {
+        create: function() {
+            var name;
+            return {
+                say: function() {
+                    alert('hello ' + name);
+                },
+                save: function (n) {
+                    name = n;
+                }
+            };
+        }
+    };
+})().create();
+my.save('J');
+my.say();
+</script>
+</body>
+</html>
