@@ -1,23 +1,57 @@
 <html>
-<body>
+<head>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="jbanner.js"></script>
 <script>
-var my = (function(){
-    return {
-        create: function() {
-            var name;
-            return {
-                say: function() {
-                    alert('hello ' + name);
-                },
-                save: function (n) {
-                    name = n;
-                }
-            };
-        }
-    };
-})().create();
-my.save('J');
-my.say();
+	$(function(){
+		$('.jbanner').begin({
+			'interval'	: 1000,
+			'speed'	: 400,
+			'button'	: true,
+			'pause'	: true,
+			'callback_init'	: jbutton_callback_init
+		});
+		$('.jbanner2').begin();
+	});
+	function jbutton_callback_init( $this )
+	{
+		$this.find('.jbanner-buttons span').css("border", "2px solid red");
+	}
 </script>
+<style>
+	.jbanner {
+		border: 1px solid grey;
+	}
+	.jbanner img, .jbanner2 img {
+		border: 0;
+	}
+	.jbanner-buttons {
+		top: 10px;
+		right: 10px;
+	}
+	.jbanner-buttons span {
+		border: 2px solid blue;
+	}
+</style>
+</head>
+<body>
+jBanner<br>
+<hr>
+<br>
+	<div class='jbanner'>
+		<a href='http://yahoo.com' target='_blank'><img src="banner1.gif"></a>
+		<a href='http://facebook.com' target='_blank'><img src="banner2.gif"></a>
+		<a href='http://daum.net' target='_blank'><img src="banner3.gif"></a>
+		<a href='http://naver.com' target='_blank'><img src="banner4.gif"></a>
+		<a href='http://google.com' target='_blank'><img src="banner5.gif"></a>
+		<a href='http://github.com' target='_blank'><img src="banner6.gif"></a>
+	</div>
+	&nbsp;<br>
+	<div class='jbanner2'>
+		<a href='http://yahoo.com' target='_blank'><img src="small1.gif"></a>
+		<a href='http://daum.net' target='_blank'><img src="small3.gif"></a>
+		<a href='http://google.com' target='_blank'><img src="small5.gif"></a>
+	</div>
+	
 </body>
 </html>
