@@ -1,4 +1,4 @@
-/** jBanner https://github.com/thruthesky/jbanner
+/** jBanner version 0.2
  *
  * Powered By JaeHo Song thruthesky@gmail.com
  * Open source code under GPL.
@@ -24,11 +24,14 @@
 		var max_length = $(this).find('a').length;
 		var o = $.extend(defaults,options);
 		if ( o.button ) show_button();
-		$(this).find('a').css('position', 'absolute');
+		$(this).find('a')
+			.css('display', 'block')
+			.css('position', 'absolute')
+			.css('width', '100%')
+		;
 		
 		$(this).find('img')
 			.css('width', '100%')
-			.css('max-width', '100%')
 			.css('height', o.height + 'px')
 			// .css('border', '0'); // problem with IE7
 		;
@@ -71,6 +74,7 @@
 			$this
 				.find('a:eq(' + count + ')')
 				.css('z-index', zIndex)
+				.css('width', width+'px')			// fix width to transform nicely.
 				.css('margin-left', width+'px')
 				.show()
 				.animate({
@@ -79,6 +83,7 @@
 					o.speed,
 					function(){
 						if ( o.callback_banner_change ) o.callback_banner_change($this, no_of_image_shown);
+						$this.find('a:eq(' + count + ')').css('width', '100%'); // % width to responsive.
 					}
 				)
 			;
