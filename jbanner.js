@@ -18,6 +18,7 @@
 			'speed': 300,
 			'button': true,
 			'pause': true,
+			'direction' : 'right-to-left',
 			'callback_init' : null,
 			'callback_banner_change' : null
 		};
