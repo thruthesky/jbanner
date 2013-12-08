@@ -5,14 +5,19 @@
 It is developed by JaeHo Song, thruthesky@gmail.com as open source code under GPL.
 
 
+## Version ##
+2013-12-08
+- Adding direction of lotate from bottom to top.
+
+
 ## Overview ##
-jBanner is a simple banner rotator sliding from right to left.
+jBanner is a simple banner rotator.
 
 jBanner had been tested on: IE10 and IE7, IE8, IE9 compatibility view, FF, Chrome, Safari, Opera, Opera Emulator
 
 ## Condition ##
 - All images should have same size.
-- The height of the image must be set in option.
+- The height of the image should be set.
 - Width of the image is always 100%. With this, it becomes responsive.
 
 
@@ -44,6 +49,13 @@ The default is 300.
 If it is set to true, then there will be numbers of button indicating each banner.
 
 The default is true.
+
+### direction ###
+- 'right-to-left' slides the banner from right to left. This is the default.
+- 'bottom-to-top' siides the banner from bottom to top.
+
+
+
 
 
 ### callback_init ###
