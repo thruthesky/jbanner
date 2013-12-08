@@ -70,23 +70,44 @@
 		{
 			no_of_image_shown = count;
 			zIndex++;
-			var width = $this.width();
-			$this
-				.find('a:eq(' + count + ')')
-				.css('z-index', zIndex)
-				.css('width', width+'px')			// fix width to transform nicely.
-				.css('margin-left', width+'px')
-				.show()
-				.animate({
-					'margin-left': '0'
-					},
-					o.speed,
-					function(){
-						if ( o.callback_banner_change ) o.callback_banner_change($this, no_of_image_shown);
-						$this.find('a:eq(' + count + ')').css('width', '100%'); // % width to responsive.
-					}
-				)
-			;
+			
+			if ( o.direction == 'bottom-to-top' ) {
+				var width = $this.width();
+				var height = $this.height();
+				$this
+					.find('a:eq(' + count + ')')
+					.css('z-index', zIndex)
+					.css('margin-top', height+'px')
+					.show()
+					.animate({
+						'margin-top': '0'
+						},
+						o.speed,
+						function(){
+							if ( o.callback_banner_change ) o.callback_banner_change($this, no_of_image_shown);
+						}
+					)
+				;
+			}
+			else {
+				var width = $this.width();
+				$this
+					.find('a:eq(' + count + ')')
+					.css('z-index', zIndex)
+					.css('width', width+'px')			// fix width to transform nicely.
+					.css('margin-left', width+'px')
+					.show()
+					.animate({
+						'margin-left': '0'
+						},
+						o.speed,
+						function(){
+							if ( o.callback_banner_change ) o.callback_banner_change($this, no_of_image_shown);
+							$this.find('a:eq(' + count + ')').css('width', '100%'); // % width to responsive.
+						}
+					)
+				;
+			}
 		}
 		
 		function show_button()
